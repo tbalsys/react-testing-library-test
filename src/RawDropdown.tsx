@@ -11,15 +11,17 @@ export default function RawDropdown({ control, children }: IRawDropdownProps) {
 
   return (
     <div className="App">
-      <div data-testid="control-container" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
+      <div
+          data-testid="control-container"
+          onMouseEnter={() => setShow(true)}
+          onMouseLeave={() => setShow(false)}>
         {control}
       </div>
-      <div
-        data-testid="content-container"
-        style={{ display: show ? "block" : "none" }}
-      >
-        {children}
-      </div>
+      {show && (
+        <div data-testid="content-container">
+            {children}
+        </div>
+      )}
     </div>
   );
 }

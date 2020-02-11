@@ -5,16 +5,18 @@ import "@testing-library/jest-dom/extend-expect";
 import RawDropdown from "./RawDropdown";
 
 test("Toggles content visibility when control is clicked", () => {
-  const { getByTestId } = render(
+  const { getByTestId, queryByTestId } = render(
     <RawDropdown control={<div>Test Control</div>}>
       <div>Test Content</div>
     </RawDropdown>
   );
+
   const control = getByTestId("control-container");
-  const content = getByTestId("content-container");
-  expect(content).not.toBeVisible();
+  const contentContainer = "content-container";
+
+  expect(queryByTestId(contentContainer)).not.toBeInTheDocument();
   fireEvent.mouseEnter(control);
-  expect(content).toBeVisible();
+  expect(queryByTestId(contentContainer)).toBeInTheDocument();
   fireEvent.mouseLeave(control);
-  expect(content).not.toBeVisible();
+  expect(queryByTestId(contentContainer)).not.toBeInTheDocument();
 });
