@@ -1,23 +1,27 @@
 import * as React from "react";
-import {Dropdown} from 'antd';
+import {Dropdown, Menu} from 'antd';
 import "./styles.css";
 
-interface IRawDropdownProps {
-  control: JSX.Element;
-  children: JSX.Element;
-}
+const menu = (
+  <Menu data-testid="content-container">
+    <Menu.Item>foo</Menu.Item>
+  </Menu>
+);
 
-export default function RawDropdown({control, children}: IRawDropdownProps) {
+export default function RawDropdown() {
   const [visible, setVisible] = React.useState(false);
 
   return (
       <Dropdown
         visible={visible}
         onVisibleChange={setVisible}
-        overlay={children}
+        overlay={menu}
         data-testid="control-container1"
+        getPopupContainer={() => document.body}
       >
-        {control}
+        <a className="ant-dropdown-link" href="#">
+          Hover me
+        </a>
       </Dropdown>
   );
 }

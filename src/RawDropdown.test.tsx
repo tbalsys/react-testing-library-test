@@ -5,11 +5,7 @@ import "@testing-library/jest-dom/extend-expect";
 import RawDropdown from "./RawDropdown";
 
 test("Toggles content visibility when control is clicked", () => {
-  const { getByTestId, queryByTestId } = render(
-    <RawDropdown control={<div data-testid="control-container">Test Control</div>}>
-      <div data-testid="content-container">Test Content</div>
-    </RawDropdown>
-  );
+  const { getByTestId, queryByTestId } = render(<RawDropdown />);
 
   const control = getByTestId("control-container");
   const contentContainer = "content-container";
