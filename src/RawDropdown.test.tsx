@@ -13,8 +13,8 @@ test("Toggles content visibility when control is clicked", () => {
   const control = getByTestId("control-container");
   const content = getByTestId("content-container");
   expect(content).not.toBeVisible();
-  fireEvent.click(control);
+  fireEvent.mouseEnter(control);
   expect(content).toBeVisible();
-  fireEvent.click(control);
+  fireEvent.mouseLeave(control);
   expect(content).not.toBeVisible();
 });

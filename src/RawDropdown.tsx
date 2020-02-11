@@ -11,7 +11,7 @@ export default function RawDropdown({ control, children }: IRawDropdownProps) {
 
   return (
     <div className="App">
-      <div data-testid="control-container" onClick={() => setShow(!show)}>
+      <div data-testid="control-container" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
         {control}
       </div>
       <div
