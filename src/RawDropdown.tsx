@@ -1,4 +1,5 @@
 import * as React from "react";
+import {Dropdown} from 'antd';
 import "./styles.css";
 
 interface IRawDropdownProps {
@@ -6,22 +7,17 @@ interface IRawDropdownProps {
   children: JSX.Element;
 }
 
-export default function RawDropdown({ control, children }: IRawDropdownProps) {
-  const [show, setShow] = React.useState(false);
+export default function RawDropdown({control, children}: IRawDropdownProps) {
+  const [visible, setVisible] = React.useState(false);
 
   return (
-    <div className="App">
-      <div
-          data-testid="control-container"
-          onMouseEnter={() => setShow(true)}
-          onMouseLeave={() => setShow(false)}>
+      <Dropdown
+        visible={visible}
+        onVisibleChange={setVisible}
+        overlay={children}
+        data-testid="control-container1"
+      >
         {control}
-      </div>
-      {show && (
-        <div data-testid="content-container">
-            {children}
-        </div>
-      )}
-    </div>
+      </Dropdown>
   );
 }
