@@ -19,7 +19,7 @@ export default function RawDropdown() {
         data-testid="control-container1"
         getPopupContainer={() => document.body}
       >
-        <a className="ant-dropdown-link" href="#">
+        <a className="ant-dropdown-link" href="#" data-testid="dropdown-link">
           Hover me
         </a>
       </Dropdown>
